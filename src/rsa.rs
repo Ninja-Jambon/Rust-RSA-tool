@@ -82,17 +82,8 @@ pub fn gen_keys(lenght: usize) -> (BigUint, BigUint, BigUint) {
 		q = gen_prime_number(lenght / 2);
 	}
 
-	println!("p : {}", p);
-	println!("q : {}", q);
-
 	let n = &p * &q;
-
-	println!("n : {}", n);
-
 	let phi_n = (&p - 1.to_biguint().unwrap()) * (&q - 1.to_biguint().unwrap());
-
-	println!("phi_n : {}", phi_n);
-
 	let e = 65537.to_biguint().unwrap();
 	let d = e.clone().mod_inverse(&phi_n).unwrap().to_biguint().expect("error");
 
